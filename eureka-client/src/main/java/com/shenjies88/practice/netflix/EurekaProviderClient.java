@@ -1,16 +1,19 @@
 package com.shenjies88.practice.netflix;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * @author shenjies88
  * @since 2021/2/5-11:21 PM
  */
-@RequestMapping
-@FeignClient("eureka-provider")
+@FeignClient(value = "eureka-provider", fallback = EurekaProviderHystrixFallback.class)
 public interface EurekaProviderClient {
 
-    @RequestMapping("/hello-word")
+    @GetMapping("/hello-word")
     String home();
+
+    @GetMapping("/fallback")
+    String fallback();
 }
+

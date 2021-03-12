@@ -1,9 +1,10 @@
 package com.shenjies88.practice.netflix;
 
+import lombok.SneakyThrows;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,8 +20,15 @@ public class EurekaProviderApplication {
         SpringApplication.run(EurekaProviderApplication.class, args);
     }
 
-    @RequestMapping("/hello-word")
+    @GetMapping("/hello-word")
     public String home() {
         return "Provider Hello world";
+    }
+
+    @SneakyThrows
+    @GetMapping("/fallback")
+    public String fallback() {
+        Thread.sleep(1000 * 100);
+        return "成功";
     }
 }
