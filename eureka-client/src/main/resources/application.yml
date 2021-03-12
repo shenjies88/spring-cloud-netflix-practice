@@ -18,10 +18,14 @@ feign:
   circuitbreaker:
     enabled: true
 
-# resilience4j配置 https://resilience4j.readme.io/
+# resilience4j配置 https://resilience4j.readme.io/ 未生效
+resilience4j.timelimiter:
+  configs:
+    default:
+      timeoutDuration: 10s
 
 ribbon:
   #ribbon请求连接的超时时间- 限制3秒内必须请求到服务，并不限制服务处理的返回时间
-  connectTimeout: 2000
+  ConnectTimeout: 3000
   #请求处理的超时时间 下级服务响应最大时间,超出时间消费方（路由也是消费方）返回timeout,超时时间不可大于断路器的超时时间
-  readTimeout: 3000
+  ReadTimeout: 3000
