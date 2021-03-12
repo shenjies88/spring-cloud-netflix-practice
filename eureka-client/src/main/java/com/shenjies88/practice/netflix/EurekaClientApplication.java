@@ -35,7 +35,7 @@ public class EurekaClientApplication {
         return eurekaProviderClient.home();
     }
 
-    @GetMapping("/fallback")
+    @GetMapping("/client-fallback")
     public String fallback() {
         return eurekaProviderClient.fallback();
     }

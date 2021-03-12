@@ -18,14 +18,6 @@ feign:
   circuitbreaker:
     enabled: true
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 8000
-
 ribbon:
   #ribbon请求连接的超时时间- 限制3秒内必须请求到服务，并不限制服务处理的返回时间
   ConnectTimeout: 3000

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author shenjies88
  * @since 2021/2/5-11:21 PM
  */
-@FeignClient(value = "eureka-provider", fallback = EurekaProviderHystrixFallback.class)
+@FeignClient(value = "eureka-provider", fallback = EurekaProviderClientFallback.class)
 public interface EurekaProviderClient {
 
     @GetMapping("/hello-word")
