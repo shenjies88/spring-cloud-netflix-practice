@@ -5,7 +5,6 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
           lowerCaseServiceId: true
       routes:
         - id: path_route
