@@ -6,12 +6,6 @@ spring:
       discovery:
         locator:
           lowerCaseServiceId: true
-      routes:
-        - id: path_route
-          uri: lb://eureka-client
-          predicates:
-            - Path=/*
-
 
 eureka:
   instance:
